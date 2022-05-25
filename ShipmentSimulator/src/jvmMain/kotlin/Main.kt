@@ -24,6 +24,8 @@ fun App() {
 }
 
 fun main() = application {
+    val simulator = TrackingSimulator("/Users/stephen/git/cs-5700-assn2/ShipmentSimulator/src/jvmMain/kotlin/test.txt")
+    simulator.runSimulator()
     Window(onCloseRequest = ::exitApplication) {
         App()
     }

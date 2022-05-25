@@ -1,3 +1,3 @@
 abstract class UpdateStrategy {
-    abstract fun buildUpdate(updateString: String): ShippingUpdate
+    abstract fun buildUpdate(updateString: String)
 }
