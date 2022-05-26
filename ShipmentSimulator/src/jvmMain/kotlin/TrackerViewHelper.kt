@@ -1,12 +1,29 @@
 import java.util.Date
 
-class TrackerViewHelper {
-    lateinit var shipmentId: String
+class TrackerViewHelper(shipment: Shipment?) {
+
+    var shipment = shipment;
+
+    var id = shipment?.id
         private set
-    lateinit var shipmentNotes: ArrayList<String>
+
+    var shipmentNotes = ArrayList<String>()
         private set
-    lateinit var expectedShipmentDeliveryDate: Date
+    var expectedShipmentDeliveryDate: Date = Date()
         private set
-    lateinit var shipmentStatus: String
+    var shipmentStatus: String? = null
         private set
+    var updateHistory = ArrayList<ShippingUpdate>()
+        private set
+
+    fun addNote(note: String) {
+        shipmentNotes.add(note)
+    }
+
+    fun updateStatus() {
+        expectedShipmentDeliveryDate = Date() // Needs to be replaced with an updated version of shipment.date
+        shipmentStatus = shipment?.status
+        updateHistory = shipment?.updateHistory!!
+    }
+
 }

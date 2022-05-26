@@ -16,12 +16,11 @@ class CreatedUpdater(simulator: TrackingSimulator) : UpdateStrategy() {
             throw Exception("Invalid update input. Created type should have format of: created,<id>,<timestamp>")
         }
 
-        val shipment = Shipment()
+        val shipment = Shipment(id, createdTimestamp)
         if (simulator.findShipment(id) != null) {
             throw Exception("Cannot create Shipment with the same ID as an existing Shipment.")
         } else {
-            val update = ShippingUpdater(null, "created", createdTimestamp)
-            shipment.id = id
+            val update = ShippingUpdate(null, "created", null, null)
             shipment.update(update)
             simulator.addShipment(shipment)
         }

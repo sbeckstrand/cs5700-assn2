@@ -1,4 +1,5 @@
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -43,6 +44,7 @@ class Reader(lines: MutableList<String>, trackingSimulator: TrackingSimulator) {
                 simulator.debugShipments()
                 delay(1000)
             }
+            scope.cancel()
         }
     }
 

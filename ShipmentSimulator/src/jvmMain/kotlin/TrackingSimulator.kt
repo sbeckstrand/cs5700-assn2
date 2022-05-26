@@ -34,7 +34,7 @@ class TrackingSimulator(filePath: String) {
 
     fun debugShipments() {
         shipments.forEach{
-            println("ID: ${it.id}, Status: ${it.status}, Location: ${it.currentLocation}, Expected Delivery: ${it.expectedDeliveryDateTimestamp}")
+            println("ID: ${it.id}, Status: ${it.status}, Location: ${it.currentLocation}, Expected Delivery: ${it.expectedDeliveryDateTimestamp}, Created Time: ${it.createdTimestamp}")
         }
         println("---")
     }
